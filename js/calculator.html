@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container{
+            width: 680px;
+            height: 460px;
+            position: absolute;
+        }
+
+        .display{
+            margin: 5px;
+            width: 365px;
+            height: 50px;
+            border: 1px solid gray;
+            border-radius: 5px;
+        }
+
+        #result {
+            width: 90%;
+            height: 100%;
+            text-align: right;
+            padding: 12px 10px;
+            font-size: 20px;
+            float: left;
+        }
+
+        #operator {
+            width: 10%;
+            height: 100%;
+            float: right;
+            padding: 15px 10px;
+            text-align: center;
+        }
+
+        button {
+            width: 80px;
+            height: 50px;
+            margin: 5px;
+            text-align: center;
+            border: 1px solid gray;
+            border-radius: 5px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="display">
+            <p id="result">0</p>
+            <p id="operator"></p>
+        </div>
+        <div class="row-1">
+            <button id="col-1" type="button" onclick="showNum('9')">9</button>
+            <button id="col-2" type="button" onclick="showNum('8')">8</button>
+            <button id="col-3" type="button" onclick="showNum('7')">7</button>
+            <button id="col-4" type="button" onclick="clearScreen()">C</button>
+        </div>
+        <div class="row-2">
+            <button id="col-1" type="button" onclick="showNum('6')">6</button>
+            <button id="col-2" type="button" onclick="showNum('5')">5</button>
+            <button id="col-3" type="button" onclick="showNum('4')">4</button>
+            <button id="col-4" type="button" onclick="showOperator('/')">/</button>
+        </div>
+        <div class="row-3">
+            <button id="col-1" type="button" onclick="showNum('3')">3</button>
+            <button id="col-2" type="button" onclick="showNum('2')">2</button>
+            <button id="col-3" type="button" onclick="showNum('1')">1</button>
+            <button id="col-4" type="button" onclick="showOperator('-')">-</button>
+        </div>
+        <div class="row-4">
+            <button id="col-1" type="button" onclick="showNum('0')">0</button>
+            <button id="col-2" type="button" onclick="showNum('.')">.</button>
+            <button id="col-2" type="button" onclick="showOperator('*')">*</button>
+            <button id="col-3" type="button" onclick="showOperator('+')">+</button>
+        </div>
+        <div class="row-5">
+            <button id="col-1" type="button" onclick="solveEq()">=</button>
+        </div>
+    </div>
+
+    <script>
+
+        var num1 = 0;
+        var num2 = 0;
+        var operation = '';
+        var result = '';
+
+        function clearScreen(){
+            document.getElementById("result").innerHTML = "0";
+            document.getElementById("operator").innerHTML = "";
+        }
+
+        function removeZero(){
+            var value = document.getElementById("result").innerHTML;
+            if(value == "0"){
+                value = " "
+                document.getElementById("result").innerHTML = value;
+            }
+        }
+
+        function showNum(num){
+            if (result != "" || num != "0"){
+                removeZero();
+                document.getElementById("result").innerHTML += num;
+            }
+        }
+
+        function showOperator(op){
+            if (num1 == 0){
+                num1 = Number(result);
+                operation = op;
+                solveEq();
+            }
+            solveEq();
+            num1 = Number(result);
+            operation = op;
+            document.getElementById("operator").innerHTML = operation;
+            display = ''
+        }
+
+        function solveEq(){
+            num2 = Number(result);
+            switch (operation) {
+                case '+':
+                    result = num1 + num2;
+                    break;
+                
+                case '-':
+                    result = num1 - num2;
+                    break;
+
+                case '*':
+                    result = num1 * num2;
+                    break;
+
+                case '/':
+                    result = num1 / num2;
+                    break;
+            
+                default:
+                    result = 0;
+            }
+            document.getElementById('result').value = result;
+            num1 = 0;
+            num2 = 0;
+            op = '';
+        }
+        
+    </script>
+
+</body>
+</html> 

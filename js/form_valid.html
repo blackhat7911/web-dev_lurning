@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+</head>
+<body>
+    <div id="frm-div">
+        <form name="reg-frm">
+        <p>
+        <label>Username: </label><br />
+        <input type="text" name="username" maxlength="30" />
+        </p>
+        <p>
+        <label>Password: </label><br />
+        <input type="password" name="password" />
+        </p>
+        <p>
+        <label>Confirm-Password: </label><br />
+        <input type="password" name="cpassword" />
+        </p>
+        <p>
+        <label>Gender: </label><br />
+        <input type="radio" name="gender" id="male" value="Male" /><label for="male">Male</label>
+        <input type="radio" name="gender" id="female" value="Female" /><label for="female">Female</label>
+        <input type="radio" name="gender" id="other" value="Other" /><label for="other">Other</label>
+        </p>
+        <p>
+        <label>Check: </label><br />
+        <input type="checkbox" name="hob" id="music" value="Music" /><label for="music">Music</label>
+        <input type="checkbox" name="hob" id="travel" value="Travel" /><label for="travel">Travel</label>
+        <input type="checkbox" name="hob" id="pg" value="Photography" /><label for="pg">Photography</label>
+        <input type="checkbox" name="hob" id="read" value="Reading" /><label for="read">Reading</label>
+        <input type="checkbox" name="hob" id="others" value="Other" /><label for="others">Other</label>
+        </p>
+        <p>
+        <label>DoB: </label><br />
+        <input type="date" name="dob" />
+        </p>
+        <p>
+        <label>Phone: </label><br />
+        <input type="text" name="phone" />
+        </p>
+        <p>
+        <label>Country: </label><br />
+        <select name="password">
+        <option value="">Select</option>
+        <option value="Nepal">Nepal</option>
+        <option value="US">US</option>
+        <option value="UK">UK</option>
+        <option value="Australia">Australia</option>
+        </select>
+        </p>
+        <p>
+        <label>Email: </label><br />
+        <input type="email" name="email" />
+        </p>
+        <p>
+        <label>Website: </label><br />
+        <input type="url" name="website" />
+        </p>
+        <p>
+        <label>Comment: </label><br />
+        <textarea name="comment"></textarea>
+        </p>
+        <p>
+        <label>Range: </label><br />
+        <input type="range" name="ran" min="0" max="10" />
+        </p>
+        <p>
+        <input type="submit" name="submit" value="Submit" onclick="return onSubmit()" />
+        <button type="button">Submit</button>
+        </p>
+        </form>
+        </div>
+        <script>
+        
+        function onSubmit(){
+            var cb = document.forms['reg-frm']['hob'];
+            for(i = 0; i < cb.length; i++){
+                if(cb[i].checked){
+                    console.log(cb[i].value);
+                }
+            }
+
+        var un = document.forms['reg-frm']['username'].value;
+        var pw = document.forms['reg-frm']['password'].value;
+        var cpw = document.forms['reg-frm']['cpassword'].value;
+        var ph = document.forms['reg-frm']['phone'].value;
+        var reg_ph = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+        var reg_name = /^[a-zA-Z\-]+$/;
+        //alert(pw);
+        //alert(cpw);
+        
+        if(!ph.match(reg_ph)){
+            alert('Invalid Phone!');
+            return false;
+        }
+
+        if(!un.match(reg_name)){
+            alert('Invalid Name!');
+            return false;
+        }
+        
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Position</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .static {
+            /* 
+            they are not affected by left, right, top or bottom properties
+            HTML elements are static in default
+            */
+            position: static;
+            border: 1px solid red;
+        }
+
+        .relative{
+            /*
+            they are affected by left, right, top and bottom properties and 
+            changes position relative to its normal position
+            other content can't be fit in gap left by this 
+            */
+            position: relative;
+            border: 1px solid green;
+            width: 400px;
+            height: 200px;
+            left: 30px;
+        }
+
+        .fixed{
+            /*
+            positioned relative to viewport i.e. it remaines in same position even if page is scrolled
+            positioned using top, bottom, left and right properties
+            doesnot leave gap in page where it is located
+            */
+            position: fixed;
+            border: 1px solid blue;
+            bottom: 0;
+            right: 0;
+            width: 300px;
+        }
+
+        .absolute{
+            /*
+            positioned relative to nearest ancestors i.e. it is like fixed works with viewport
+            Though is has no positioned ancestors, it uses document body and moves along page when
+            scrolled
+            */
+            position: absolute;
+            top: 80px;
+            width: 200px;
+            height: 100px;
+            right: 0;
+        }
+
+        .sticky{
+            /*
+            positioned based on user's scroll position
+            toggles between relative and fixed depending on scroll position
+            positioned relative until given offset position in met in view port and then sticks in place(like fixed)
+            */
+            position: sticky;
+            position: -webkit-sticky; /* Safari */
+            top: 0;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="static">
+        <h1>Static</h1>
+        <p>This is static position</p>
+    </div>
+    <div class="relative">
+        <h1>Relative</h1>
+        <p>This is relative position</p>
+    </div>
+    <div class="fixed">
+        <h1>Fixed</h1>
+        <p>This is fixed position</p>
+    </div>
+    <div class="absolute">
+        <h1>Absolute</h1>
+        <p>This is absolute position</p>
+    </div>
+    <div class="sticky">
+        <h1>Sticky</h1>
+        <p>This is sticky position</p>
+    </div>
+</body>
+</html>

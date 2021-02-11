@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            width: 200px;
+            height: 50px;
+            border: 1px solid green;
+            float: left;
+        }
+        .container2{
+            width: 400px;
+            height: 150px;
+            border: 1px solid blue;
+            clear: left;
+        }
+        .container3{
+            width: 200px;
+            height: 50px;
+            border: 1px solid green;
+            float: left;
+        }
+        .container4{
+            width: 400px;
+            height: 150px;
+            border: 1px solid blue;
+            clear: none;
+        }
+        .box{
+            width: 33.33%;
+            float: left;
+            padding: 50px;
+        }
+        .clearfix::after{
+            content: '';
+            clear: both;
+            display: table;
+        }
+
+        /* use auto margin to align position center */
+        .center{
+            width: 50%;
+            margin: auto;
+            padding: 10px;
+            border: 1px solid black;
+        }
+        /* using absolute to align position left or right */
+        .left{
+            position: absolute;
+            width: 200px;
+            padding: 10px;
+            left: 0;
+            border: 1px solid black;
+        }
+
+        .right{
+            position: absolute;
+            width: 200px;
+            padding: 10px;
+            right: 0;
+            border: 1px solid black;
+        }
+        .dropdown{
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content{
+            display: none;
+            position: absolute;
+            background-color: lightgreen;
+            min-width: 150px;
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+            padding: 12px 16px;
+            z-index: 1;                
+        }
+
+        .dropdown:hover .dropdown-content{
+            display: block;
+        }
+
+        .image-gallery{
+            margin: auto;
+            border: 1px solid pink;
+            float: auto;
+            width: 180px;
+        }
+
+        .image-gallery:hover{
+            border: 1px solid black;
+        }
+
+        .image-gallery img{
+            width: 100%;
+            height: auto;
+        }
+
+        .desc{
+            padding: 15px;
+            text-align: center;
+        }
+
+        .form-container{
+            border-radius: 5px;
+            padding: 20px;
+            background-color: grey;
+            width: 50%;
+            margin: auto;
+        }
+
+        input[type=text], select{
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid grey;
+            box-sizing: border-box;
+        }
+
+        input[type=submit]{
+            width: 100%;
+            padding: 12px 20px;
+            background-color: #4caf50;
+            color: white;
+            margin: 8px 0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Without Clear</h1>
+    <div class="container">Container 1</div>
+    <div class="container2">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit amet et ipsum dolore
+        alias excepturi assumenda reprehenderit rerum, explicabo obcaecati labore sint. Animi deleniti, delectus 
+        iste dolores pariatur odit doloribus?
+    </div>
+    <h1>With Clear</h1>
+    <div class="container3">Container 3</div>
+    <div class="container4">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis corrupti non qui, 
+        tempore vitae delectus dolor quam in tempora molestiae nisi, animi possimus, perspiciatis quaerat 
+        aspernatur consequuntur impedit maiores modi.
+    </div>
+    <div class="clearfix">
+        <div class="box" style="background-color: red;">
+            <p>Red Box</p>
+        </div>
+        <div class="box" style="background-color: green;">
+            <p>Green Box</p>
+        </div>
+        <div class="box" style="background-color: blue;">
+            <p>Blue Box</p>
+        </div>
+    </div>
+    <div class="left">left</div>
+    <div class="center">center</div>
+    <div class="right">right</div>
+    <div class="dropdown">
+        <span>Dropdown</span>
+        <div class="dropdown-content">
+            <p>Hello</p>
+            <p>World</p>
+        </div>
+    </div>
+    <div class="image-gallery">
+        <a target="_blank" href="bg.jpg">
+            <img src="bg.jpg" alt="">
+        </a>
+        <div class="desc">
+            <p>Description of image here...</p>
+        </div>
+    </div>
+    <h1>Form</h1>
+    <div class="form-container">
+        <form action="">
+            <label for="fname">First Name</label>
+            <input type="text" name="" id="fname" placeholder="firstname...">
+            <label for="lname">Last Name</label>
+            <input type="text" name="" id="lname" placeholder="lastname...">
+            <label for="country">Country</label>
+            <select name="country" id="country">
+                <option value="nepal">Nepal</option>
+                <option value="china">China</option>
+                <option value="india">India</option>
+            </select>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>

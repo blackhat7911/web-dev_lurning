@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Javascript</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <div id="my-div">
+        <h1 id="show">Javascript</h1>
+        <input type="radio" id="first" name="ans" onclick="alert(this.value)" /><label for="first" id="first-opt"></label><br />
+        <input type="radio" id="second" name="ans" /><label for="second" id="second-opt"></label><br />
+        <input type="radio" id="third" name="ans" /><label for="third" id="third-opt"></label><br />
+        <input type="radio" id="fourth" name="ans" /><label for="fourth" id="fourth-opt"></label><br />
+        <!-- <button type=="button" id="prev" onclick="onPrev()">prev</button> -->
+        <button type="button" id="next" onclick="onNext()">next</button>
+    </div>
+<script>
+    var questions = ['What is the capital city of Nepal?',
+    'What is the Height of Mt. Everest?',
+    'Who is the first prime minister of Nepal?',
+    'What is the longest river of Nepal?'];
+
+    var answers = [['Pokhara', 'Kathmandu', 'Nepalgunj', 'Ilam'],
+    ['8848m', '8488m', '8848.86m', '8850m'],
+    ['BP Koirala', 'Girija Pd. Koiraala', 'Sher Bd. Deuwa', 'Bhimsen Thapa'],
+    ['Karnali', 'Koshi', 'Narayani', 'Trishuli']];
+
+    var correct_answers = [];
+
+    var user_answers = [];
+
+    var i = 0;
+
+    setValues();
+
+    function onNext(){​​​​​
+        if(i < questions.length - 1){​​​​​
+        i++;
+        }​​​​​
+        setValues();
+    }​​​​​
+
+    function onPrev(){​​​​​
+        if(i > 0){​​​​​
+        i--;
+        }​​​​​
+        setValues();
+    }​​​​​
+
+    function setValues(){​​​​​
+        document.getElementById('show').innerHTML = questions[i];
+        document.getElementById('first-opt').innerHTML = answers[i][0];
+        document.getElementById('second-opt').innerHTML = answers[i][1];
+        document.getElementById('third-opt').innerHTML = answers[i][2];
+        document.getElementById('fourth-opt').innerHTML = answers[i][3];
+        document.getElementById('first').value = answers[i][0];
+        document.getElementById('second').value = answers[i][1];
+        document.getElementById('third').value = answers[i][2];
+        document.getElementById('fourth').value = answers[i][3];
+    }​​​​​
+
+</script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+ <head>
+<title>Javascript</title>
+<meta charset="utf-8" />
+</head>
+<style>
+h1
+{
+color: red;
+}
+</style>
+<body>
+<h1 id="my-heading">Heading</h1>
+<h1 class="my-para" onclick="alert('clicked')">Heading</h1>
+<h1>Heading</h1>
+<div id="first">
+<p>Paragraph Text</p>
+</div>
+<p class="my-para">Paragraph Text</p>
+<p>Paragraph Text</p>
+<p class="my-para">Paragraph Text</p>
+<div>
+<input type="text" id="user-input" class="inputs"
+onkeydown="my_function(this.value)" />
+<input type="text" id="user-input1" class="inputs"
+onkeyup="my_function(this.value)" />
+
+</div>
+
+   
+
+<script>
+function my_function(val)
+{
+console.log(val);
+}
+// iteractive
+// javascript can manipulate content, DOM, attributes, style
+/*
+on users' actions (events)
+--------------------------
+onload onmouseover onmouseout onclick onfocus onfocusout
+onblur onchange onselect onchecked onkeyup onkeydown
+*/
+/*
+selecting HTML Elements
+-----------------------
+console.log(document.getElementById('first'));
+console.log(document.getElementsByTagName('p'));
+console.log(document.getElementsByClassName('my-para'));
+*/
+/*
+print in Javascript
+-------------------
+document.write('Hello');
+alert('Hello');
+console.log('hello');
+document.getElementById('my-heading').innerHTML = 'From Javascript';
+document.getElementsByTagName('h1')[1].innerHTML = 'From Javascript';
+document.getElementsByClassName('my-para')[2].innerHTML = 'From Javascript';
+user input
+----------
+var a = document.getElementById('user-input').value;
+b = document.getElementsByClassName('inputs')[0].value;
+document.getElementsByTagName('input')[0].value = 'javascript';
+*/
+//variable, datatype, operator, conditional, looping, array, function
+</script>
+</body>
+</html>

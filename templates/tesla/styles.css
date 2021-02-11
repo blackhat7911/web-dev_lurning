@@ -1,0 +1,98 @@
+@font-face{
+    font-family: 'iCiel-Medium';
+    src: local('iCiel-Medium'), url('.fonts/iCiel-Medium.ttf');
+    font-weight: normal;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'iCiel-Medium', Roboto, Verdana, Geneva, Tahoma, 'sans-serif';
+}
+
+body{
+    width: 100%;
+    background-image: url("./assets/Desktop-ModelX.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.hamburger{
+    width: 30px;
+    height: 5px;
+    background-color: black;
+    margin: 6px 0;
+}
+
+.navbar{
+    width: 100vw;
+    display: flex;
+    background-color: transparent;
+    top: 0;
+    z-index: 100;
+    margin: 15px;
+    position: sticky;
+    background: none;
+}
+
+.logo_container{
+    width: 100px;
+    height: 24px;
+    margin-top: 7px;
+}
+
+.center_container{
+    display: flex;
+    justify-content: center;
+    flex: 1;
+}
+
+.center_container > a{
+    margin: 8px;
+    font-weight: 500;
+    text-decoration: none;
+    color: black;
+    text-transform: uppercase;
+}
+
+.right_container{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10px;
+}
+
+.right_container > a{
+    text-decoration: none;
+    color: black;
+    margin: 8px;
+    text-transform: uppercase;
+}
+
+.body_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.desc{
+    text-align: center;
+}
+
+.button-container > button{
+    border-radius: 999px;
+    border: none;
+    padding: 10px;
+    width: 200px;
+    font-weight: 500;
+}
+
+#btn1{
+    color: white;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+#btn2{
+    color: black;
+    background-color: rgba(255, 255, 255, 0.6);
+}
+

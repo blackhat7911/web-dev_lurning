@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery</title>
+    <script src="jquery-3.5.1.min.js"></script>
+</head>
+<body>
+    <h1 id="my_heading">My Heading</h1>
+    <p id="demo"></p>
+    <input type="password" id="name">
+    <input type="checkbox" name="" id="check">
+    <label for="check" id="show">Show</label>
+    <button id="btn" class="btn btn-primary">Click Here</button>
+    <br>
+
+    <input type="checkbox" name="" value="option1" id="radio1">
+    <label for="radio1">Option1</label><br>
+    <input type="checkbox" name="" value="option2" id="radio2">
+    <label for="radio2">Option2</label><br>
+    <input type="checkbox" name="" value="option3" id="radio3">
+    <label for="radio3">Option3</label><br>
+    <input type="checkbox" name="" value="option4" id="radio4">
+    <label for="radio">Option4</label><br>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+
+    <ul id="items"></ul>
+
+    <div class="container">
+        <div class="card" style="width: 18rem;">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        
+        $(document).ready(function(){
+            var myElement = $("#my_heading");
+            var myText = myElement.text();
+            $("#demo").text(myText);
+        });
+
+        $("#my_heading").on("click", function(){
+            $("#my_heading").html("jQuery");
+            $("#my_heading").attr("align","center");
+            $("#my_heading").css("color","red");
+        });
+
+        $("#btn").click(function(){
+            if($("#check").is(":checked")){
+                $("#name").attr("type","text")
+            } 
+            else {
+                $("#name").attr("type","password")
+                alert("Something went wrong");
+            }
+        });
+
+        var checkedBox = [];
+        $("input[type=checkbox]").click(function(){
+            if(this.checked){
+                checkedBox.push(this.value);
+            }
+            else{
+                checkedBox.splice(checkedBox.indexOf(this.value), 1);
+            }
+            for (let index = 0; index < checkedBox.length; index++) {
+                $("#items").html("<li>"+ checkedBox[index] +"</li>")
+            }
+        });
+
+    </script>
+</body>
+</html>
